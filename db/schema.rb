@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_12_03_072719) do
+ActiveRecord::Schema[8.1].define(version: 2025_12_03_094057) do
+  create_table "guests", charset: "utf8mb3", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "email"
+    t.string "name"
+    t.bigint "party_id", null: false
+    t.string "phone_no"
+    t.datetime "updated_at", null: false
+    t.index ["party_id"], name: "index_guests_on_party_id"
+  end
+
   create_table "parties", charset: "utf8mb3", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "date_time"
@@ -18,4 +28,6 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_03_072719) do
     t.string "party_name"
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "guests", "parties"
 end

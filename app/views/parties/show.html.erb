@@ -1,3 +1,48 @@
-<h1><%= @parties.party_name %></h1>
-<p><%=@parties.date_time %></p>
-<p><%= @parties.notes %></p>
+<h1><%= @party.party_name %></h1>
+<p><%=@party.date_time %></p>
+<p><%= @party.notes %></p>
+
+<div>
+<h2>List of Guests to participate</h2>
+<% @party.guests.each do |guest| %>
+  <p>
+    <strong>Guest Name:</strong>
+    <%= guest.name %>
+<%= link_to "Remove",
+            party_guest_path(@party, guest),
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+            } %>
+  </p>
+  
+  <p>
+    <strong>email-id</strong>
+    <%= guest.email %>
+  </p>
+    <p>
+    <strong>phone number:</strong>
+    <%= guest.phone_no %>
+  </p>
+
+<% end %>
+</div>
+
+<h2>Add people:</h2>
+<%= form_with model: [ @party, @party.guests.build ] do |form| %>
+  <p>
+    <%= form.label :full_name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :email_id %><br>
+    <%= form.text_field :email %>
+  </p>
+    <p>
+    <%= form.label :phonenumber %><br>
+    <%= form.text_field :phone_no %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
