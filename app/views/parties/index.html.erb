@@ -1,0 +1,9 @@
+<h1>Event Management</h1>
+
+<ul>
+  <% @parties.each do |party| %>
+    <li>
+        <%= link_to party.party_name, party %>    
+    </li>
+  <% end %>
+</ul>
