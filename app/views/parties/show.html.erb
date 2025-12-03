@@ -1,6 +1,9 @@
+
 <h1><%= @party.party_name %></h1>
-<p><%=@party.date_time %></p>
-<p><%= @party.notes %></p>
+<p>
+<p>Event date and time :<%=@party.date_time %></p>
+</p>
+<p>Description/notes :<%= @party.notes %></p>
 
 <div>
 <h2>List of Guests to participate</h2>
@@ -17,7 +20,7 @@
   </p>
   
   <p>
-    <strong>email-id</strong>
+    <strong>email-id:</strong>
     <%= guest.email %>
   </p>
     <p>
