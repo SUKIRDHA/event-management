@@ -10,11 +10,10 @@ class GuestsController < ApplicationController
     @guest = @party.guests.find(params[:id])
     @guest.destroy
      redirect_to party_path(@party)
-
   end
+
   private
     def guest_params
       params.require(:guest).permit(:name, :email, :phone_no)
     end
 end
-

@@ -53,9 +53,12 @@ development:
   database: event_management
 
 test:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8
   database: event_management_test
-
+  username: admin
+  password: Admin@123
+  socket: /var/run/mysqld/mysqld.sock
 production:
   <<: *default
   database: event_management_production
