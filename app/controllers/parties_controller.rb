@@ -18,9 +18,8 @@ class PartiesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
   private
     def party_params
-      params.require(:party).permit(:party_name, :date_time,:notes)
-    end
+      params.require(:party).permit(:party_name, :date_time, :notes)
+  end
 end
