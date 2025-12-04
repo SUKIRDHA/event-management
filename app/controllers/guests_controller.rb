@@ -4,10 +4,6 @@ class GuestsController < ApplicationController
     @guest = @party.guests.create(guest_params)
     redirect_to party_path(@party)
   end
-  # def show
-  #   @party = Party.find(params[:party_id])
-  #   @guest = @party.guests.find(params[:id])
-  # end
 
   def destroy
     @party = Party.find(params[:party_id])
